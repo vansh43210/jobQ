@@ -1,9 +1,5 @@
 # JobQ — Job Queue Management & Monitoring System
 
-JobQ is a full-stack job queue monitoring and lifecycle management dashboard. It provides real-time visibility into asynchronous jobs, enforces deterministic state machine transitions, and allows users to create, transition, and delete background jobs through a clean user interface.
-
----
-
 ## Core Problems Solved
 
 1. **State Transition Integrity**: In distributed or asynchronous systems, invalid job state transitions (such as moving from `completed` back to `pending`, or `pending` directly to `completed`) lead to race conditions and inconsistent job records. JobQ enforces strict state machine validation at both the middleware and frontend layers.
