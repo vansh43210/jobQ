@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from "react";
 
-const api = 'http://localhost:3000'
+const api = 'https://jobq-1.onrender.com'
 export type Job = {
     job_id: string | number;
     job_title: string;
