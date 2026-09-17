@@ -6,7 +6,7 @@ export default function App() {
   const [jobs, setJobs] = useState<Job[]>([]);
 
   return (
-    <div className="h-screen w-screen p-4 flex items-center flex-col gap-5 absolute">
+    <div className="min-h-screen w-full p-3 sm:p-5 md:p-6 lg:p-8 flex items-center flex-col gap-4 sm:gap-5 box-border">
       <JobComponent jobs={jobs} />
       <JobsHandler onJobsChange={setJobs} />
     </div>

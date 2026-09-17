@@ -133,29 +133,29 @@ export default function JobsHandler({
     };
 
     return (
-        <div className="w-[97%] border border-[#e2e2e2] rounded-2xl relative">
+        <div className="w-full max-w-7xl border border-[#e2e2e2] rounded-2xl relative bg-white">
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-[#e2e2e2]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-4 sm:px-6 py-3.5 sm:py-4 border-b border-[#e2e2e2]">
                 <div>
-                    <h2 className="text-lg font-bold text-gray-800 tracking-tight">
+                    <h2 className="text-base sm:text-lg font-bold text-gray-800 tracking-tight">
                         Job Queue
                     </h2>
-                    <p className="text-sm text-gray-400 mt-0.5">
+                    <p className="text-xs sm:text-sm text-gray-400 mt-0.5">
                         Manage and monitor your jobs
                     </p>
                 </div>
-                <div className="relative">
+                <div className="relative self-start sm:self-auto">
                     <button 
                         onClick={() => setCreate((prev) => !prev)}
-                        className="flex items-center gap-2 bg-gray-900 hover:bg-gray-700 active:scale-95 transition-all duration-150 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-sm cursor-pointer"
+                        className="flex items-center gap-2 bg-gray-900 hover:bg-gray-700 active:scale-95 transition-all duration-150 text-white text-xs sm:text-sm font-semibold px-3.5 sm:px-4 py-2 rounded-lg shadow-sm cursor-pointer whitespace-nowrap"
                     >
-                        <span className="text-lg leading-none">{isCreating ? "✕" : "+"}</span>
+                        <span className="text-base sm:text-lg leading-none">{isCreating ? "✕" : "+"}</span>
                         Create Job
                     </button>
 
                     {/* Create Job Form opened just to the side of Create Job button */}
                     {isCreating && (
-                        <div className="absolute right-0 mt-2 z-50 w-80 bg-white border border-[#e2e2e2] rounded-xl shadow-xl p-4">
+                        <div className="absolute left-0 sm:left-auto sm:right-0 top-full mt-2 z-50 w-[calc(100vw-3rem)] max-w-xs sm:max-w-sm sm:w-80 bg-white border border-[#e2e2e2] rounded-xl shadow-xl p-4">
                             <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#e2e2e2]">
                                 <h3 className="text-sm font-bold text-gray-800">Create New Job</h3>
                                 <button
@@ -217,16 +217,16 @@ export default function JobsHandler({
             </div>
 
             {/* Table */}
-            <div className="overflow-x-auto">
-                <table className="w-full text-sm">
+            <div className="overflow-x-auto w-full">
+                <table className="w-full min-w-[640px] text-xs sm:text-sm">
                     <thead>
-                        <tr className="bg-gray-50 border-b border-[#e2e2e2] text-gray-500 uppercase text-xs tracking-wider">
-                            <th className="text-left px-6 py-3 font-semibold">Job ID</th>
-                            <th className="text-left px-6 py-3 font-semibold">Job Title</th>
-                            <th className="text-left px-6 py-3 font-semibold">Job Type</th>
-                            <th className="text-left px-6 py-3 font-semibold">Time</th>
-                            <th className="text-left px-6 py-3 font-semibold">Status</th>
-                            <th className="text-left px-6 py-3 font-semibold">Actions</th>
+                        <tr className="bg-gray-50 border-b border-[#e2e2e2] text-gray-500 uppercase text-[11px] sm:text-xs tracking-wider">
+                            <th className="text-left px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 font-semibold whitespace-nowrap">Job ID</th>
+                            <th className="text-left px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 font-semibold whitespace-nowrap">Job Title</th>
+                            <th className="text-left px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 font-semibold whitespace-nowrap">Job Type</th>
+                            <th className="text-left px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 font-semibold whitespace-nowrap">Time</th>
+                            <th className="text-left px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 font-semibold whitespace-nowrap">Status</th>
+                            <th className="text-left px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 font-semibold whitespace-nowrap">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -254,35 +254,35 @@ export default function JobsHandler({
                                         }`}
                                 >
                                     {/* Job ID */}
-                                    <td className="px-6 py-4">
-                                        <span className="font-mono text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                                    <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 whitespace-nowrap">
+                                        <span className="font-mono text-[11px] sm:text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
                                             {job.job_id}
                                         </span>
                                     </td>
 
                                     {/* Job Title */}
-                                    <td className="px-6 py-4 font-medium text-gray-800">
+                                    <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 font-medium text-gray-800 break-words min-w-[140px]">
                                         {job.job_title}
                                     </td>
 
                                     {/* Job Type */}
-                                    <td className="px-6 py-4">
+                                    <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 whitespace-nowrap">
                                         <span className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-full">
                                             {job.type}
                                         </span>
                                     </td>
 
                                     {/* Time */}
-                                    <td className="px-6 py-4 text-gray-500">
+                                    <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-gray-500 whitespace-nowrap">
                                         {job.createdAt ? new Date(job.createdAt).toLocaleString() : "—"}
                                     </td>
 
                                     {/* Status Dropdown */}
-                                    <td className="px-6 py-4">
+                                    <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 whitespace-nowrap">
                                         <select
                                             value={job.status} 
                                             onChange={(e) =>{ updateJobStatus(job, e.target.value)}}
-                                            className={`border rounded-lg px-3 py-1.5 text-xs font-semibold focus:outline-none focus:ring-2 cursor-pointer transition-colors duration-150 ${statusStyles[job.status]
+                                            className={`border rounded-lg px-2 sm:px-3 py-1 sm:py-1.5 text-xs font-semibold focus:outline-none focus:ring-2 cursor-pointer transition-colors duration-150 ${statusStyles[job.status]
                                                 }`}
                                         >
                                             {/* Current status shown as the display label */}
@@ -300,10 +300,10 @@ export default function JobsHandler({
                                     </td>
 
                                     {/* Delete Button */}
-                                    <td className="px-6 py-4">
+                                    <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 whitespace-nowrap">
                                         <button 
                                             onClick={() => deleteJob(job.job_id)}
-                                            className="flex items-center gap-1.5 text-xs font-semibold text-red-500 hover:text-red-700 hover:bg-red-50 active:scale-95 border border-red-200 hover:border-red-400 px-3 py-1.5 rounded-lg transition-all duration-150 cursor-pointer"
+                                            className="flex items-center gap-1.5 text-xs font-semibold text-red-500 hover:text-red-700 hover:bg-red-50 active:scale-95 border border-red-200 hover:border-red-400 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg transition-all duration-150 cursor-pointer"
                                         >
                                             Delete
                                         </button>
